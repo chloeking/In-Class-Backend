@@ -7,20 +7,16 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.get('/api/:table?', function (req, res) {
-	var chosen = req.params.characters;
+	res.json(tables);	
+});
 
-	if (chosen) {
-		console.log(chosen);
+app.post('/api/new', function (req, res) {
+	var newTable = req.body;
+	newTable.routeName = newTable.name.replace(/\s+/g, '').toLowerCase();
 
-		for (var i = 0; i < characters.length; i++) {
-			if (chosen === characters[i].routeName) {
-				res.json(characters[i]);
-				return;
-			}
-		}
+	console.log(newTable);
 
-		res.json(false);
-	} else {
-		res.json(characters);
-	}
+	tables.push(newTable);
+
+	res.json(newTable);
 });
