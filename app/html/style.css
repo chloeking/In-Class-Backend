@@ -1,0 +1,14 @@
+@font-face {
+    font-family: krustyFont;
+    src: url("Krabby Patty.ttf");
+}
+
+h1 {
+	font-family: krustyFont;
+}
+h2 {
+	font-family: krustyFont;
+}
+#heading {
+	font-family: krustyFont;
+}
