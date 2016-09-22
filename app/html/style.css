@@ -14,10 +14,10 @@ h2 {
 }
 
 #spongebob {
-	position: absolute;
+	position: fixed;
 	bottom: 0px;
 	left: 0px;
-	animation: walkinOnTheBeach 10s infinite both;
+	animation: walkinOnTheBeach 10s forwards;
 }
 
 @keyframes walkinOnTheBeach {
@@ -26,13 +26,14 @@ h2 {
 }
 
 #imgcontainer {
-	position: absolute;
+	position: fixed;
 	bottom: 0px;
 	right: 0px;
 	width: 400px;
 	height: 400px;
 	overflow: hidden;
 }
+
 body {
 	background-image: url("bikini.jpg");
 	background-size: cover;
@@ -40,4 +41,10 @@ body {
 }
 .jumbotron { 
     background-color: rgba(196,235,255,0.2);
+}
+
+#explosion {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
 }
