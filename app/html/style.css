@@ -1,0 +1,41 @@
+@font-face {
+    font-family: krustyFont;
+    src: url("Krabby Patty.ttf");
+}
+
+h1 {
+	font-family: krustyFont;
+}
+h2 {
+	font-family: krustyFont;
+}
+#heading {
+	font-family: krustyFont;
+}
+
+#spongebob {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	animation: walkinOnTheBeach 10s forwards;
+}
+
+@keyframes walkinOnTheBeach {
+	from { left: 0%; }
+	to { left: calc(100% - 152px); }
+}
+
+#imgcontainer {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	width: 400px;
+	height: 400px;
+	overflow: hidden;
+}
+
+#explosion {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+}

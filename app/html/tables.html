@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hot Restaurant Tables</title>
+	
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="container">
+
+		<div class= "jumbotron">
+			<center>
+			<h1 id="heading"><img src = "bob.png">The Krusty Krab  <img src = "burger.png" width= "50px"></h1>
+			<h2>Home of the Krabby Patty!</h2>
+					<br>
+					<br>
+					<h2 >Current Reservations and Waiting List</h2>
+					<br>
+					<br>
+					<div>
+						<a href="reserve.html"><button type="button" class="btn btn-lg btn-danger"><h4 id="search"><span class="glyphicon glyphicon-save"></span> Reserve a Table</h4></button></a>
+						<a href="home.html"><button type="button" class="btn btn-lg btn-default"><h4 id="search"><span class="glyphicon glyphicon-home"></span></h4></button></a>	
+					</div>
+			</center>
+
+		</div>
+
+		<div class="row">
+
+			<div class="col-lg-12">
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><strong>Current Reservations</strong></h3>
+					</div>
+					<div class="panel-body">
+					</div>
+				</div>
+				<br>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><strong>Waiting List</strong></h3>
+					</div>
+					<div class="panel-body" id="characters">
+						<div class="well">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		var currentURL = window.location.origin;
+
+		console.log('http://localhost:3000/api/table');
+
+		$.get('http://localhost:3000/api/table', function (data) {
+			for (var i = 0; i < data.length; i++) {
+				var wellSection = $('<div>');
+				wellSection.addClass('well');
+				wellSection.attr('id', 'characterWell-' + i);
+				$('#characters').append(wellSection);
+				$('#characterWell-' + i).append('<h2>Name:' + data[i].name + '</h2>');
+				$('#characterWell-' + i).append('<h3>Phone Number: ' + data[i].phonenumber + '</h3>');
+				$('#characterWell-' + i).append('<h3>Email: ' + data[i].email + '</h3>');
+				$('#characterWell-' + i).append('<h3>Unique ID: ' + data[i].uniqueid + '</h3>');
+			}
+		});
+	</script>
+</body>
+</html>
