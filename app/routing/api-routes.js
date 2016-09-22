@@ -2,7 +2,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var list = require(path.join(__dirname, '..','/data/tables.js'))
 
-module.exports = function () {
+module.exports = function (app) {
 
 
 	app.get('/api/table', function (req, res) {
