@@ -6,7 +6,7 @@
 
 	<!-- Latest compiled and minified CSS & JS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	
+
 	<link rel="stylesheet" type="text/css" href="style.css">
 	
 </head>
@@ -39,8 +39,19 @@
 
 	<img id="spongebob" src="spongebob.gif">
 	<div id="imgcontainer"><img id="krustykrab" src="krustykrab.png"></div>
+	<img id="explosion" src="explosion.gif">
+	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 <script type="text/javascript">
-	
+	$('#explosion').hide();
+	$('#spongebob').on('animationend', function() {
+		$('#krustykrab').hide();
+		$('#spongebob').hide();
+		$('#explosion').show();
+		window.setTimeout(function() {
+			$('#explosion').hide();
+		}, 1000);
+		
+	})
 </script>
 </body>
 </html>
